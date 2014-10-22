@@ -1,4 +1,4 @@
 casperjs-jenkins
 ================
 
-Full test environment with casperJs and Jenkins on Vagrant
+Full test environment with phantomcss and Jenkins on Vagrant
