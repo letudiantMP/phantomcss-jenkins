@@ -1,0 +1,13 @@
+{
+  "name": "casperJs-tests",
+  "description": "Install packages for lunching testsuite and capture screenshot to track regression",
+  "author": "Mathieu PAVILLON <moi@letudiant.fr>",
+  "dependencies": {
+    "phantomjs": "~1.9.10",
+    "casperjs": "~1.1.0-beta3",
+    "resemblejs": "~1.2.0"
+  },
+  "scripts": {
+    "postinstall" : "export PATH=${PATH}:`pwd`/node_modules/phantomjs/bin/"
+  }
+}
