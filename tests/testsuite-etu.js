@@ -28,6 +28,39 @@ phantomcss.init(/*{
 }*/);
 
 
+// extract domain name from a URL
+function sitename( url ) {
+    var result = /^https?:\/\/([^\/]+)/.exec( url );
+    if ( result ) {
+        return( result[1] );
+    } else {
+        return( null );
+    }
+}
+ 
+// add a callback to every request performed on a webpage
+function adblock( page ) {
+    page.onResourceRequested = function ( requestData, networkRequest ) {
+        // pull out site name from URL
+        var site = sitename( requestData.url );
+        if ( ! site )
+            return;
+ 
+        // abort requests for particular domains
+        if (
+            ( /\.doubleclick\./.test( site ) ) ||
+            ( /\.pubmatic\.com$/.test( site ) )
+        ) {
+            console.error( "  - BLOCKED URL from " + site );
+            networkRequest.abort();
+            return;
+        }
+    };
+}
+ 
+var page = require('webpage').create();
+adblock( page );
+
 /*
 	The test scenario
 */
