@@ -8,6 +8,6 @@
     "resemblejs": "~1.2.0"
   },
   "scripts": {
-    "postinstall" : "export PATH=${PATH}:`pwd`/node_modules/phantomjs/bin/"
+    "postinstall" : "export PATH=${PATH}:`pwd`/node_modules/phantomjs/bin/:`pwd`/node_modules/casperjs/bin/"
   }
 }
